@@ -7,44 +7,70 @@ public class Character : MonoBehaviour
 {
     private Rigidbody rigid;
     private Collider colider;
+    private Animator anim;
 
 
+    //캐릭터 움직임 변수
     private int[] route = {-2,0,2};
-    private bool change;
     private int routeIndex;
-    private float value;
+
+    //캐릭터 점프 변수
+    private bool isJump;
 
     // Start is called before the first frame update
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         routeIndex = 1;
+        isJump = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         CharacterMove();
+        CharacterJump();
     }
 
     private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, 0), 0.05f);
+    
     }
 
-    //캐릭터 움직임 입력
+    //캐릭터 움직임
     void CharacterMove()
     {
-
         if (Input.GetKeyDown(KeyCode.A) && routeIndex > 0)
-        {
             routeIndex--;
-        }
         if(Input.GetKeyDown(KeyCode.D) && routeIndex < 2)
-        {
             routeIndex++;
+    }
+
+    void CharacterJump()
+    {
+
+        if (Input.GetKeyDown(KeyCode.W) && !isJump)
+        {
+            rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            anim.SetTrigger("Jumped");
+            isJump = true;
         }
     }
 
-    
+    void CharacterSlide()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetTrigger("Slided");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("123");
+        if (collision.gameObject.CompareTag("Ground"))
+            isJump = false;
+    }
 }

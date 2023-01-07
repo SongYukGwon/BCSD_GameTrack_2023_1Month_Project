@@ -272,9 +272,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumanMale_Character_FREE
       objectReference: {fileID: 0}
+    - target: {fileID: 4540229000190281644, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333447398838038862, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Mass
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333447398838038862, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5333447398838038862, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_Constraints
-      value: 8
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5890793179970502526, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_IsTrigger
@@ -380,7 +392,7 @@ GameObject:
   - component: {fileID: 1838016037}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
