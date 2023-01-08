@@ -6,24 +6,25 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     private Rigidbody rigid;
-    private Collider colider;
+    [SerializeField]
+    public Collider[] colider;
     private Animator anim;
 
 
     //캐릭터 움직임 변수
     private int[] route = {-2,0,2};
     private int routeIndex;
-
-    //캐릭터 점프 변수
     private bool isJump;
+    private float slideTime;
 
     // Start is called before the first frame update
     void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody>();
         routeIndex = 1;
         isJump = false;
+        slideTime = 0;
     }
 
     // Update is called once per frame
@@ -62,10 +63,19 @@ public class Character : MonoBehaviour
 
     void CharacterSlide()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && slideTime<=0)
         {
             anim.SetTrigger("Slided");
-            Debug.Log("123");
+            rigid.AddForce(Vector3.down * 5, ForceMode.Impulse);
+            slideTime = 0.8f;
+            colider[0].enabled = false;
+            colider[1].enabled = true;
+        }
+        if (slideTime>0)
+        {
+            slideTime -= Time.deltaTime;
+            colider[0].enabled = true;
+            colider[1].enabled = false;
         }
     }
 
