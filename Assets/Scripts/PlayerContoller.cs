@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class PlayerContoller : MonoBehaviour
 {
     private Rigidbody rigid;
     [SerializeField]
@@ -15,6 +15,9 @@ public class Character : MonoBehaviour
     //캐릭터 움직임 변수
     private int[] route = {-2,0,2};
     private int routeIndex;
+
+
+    //캐릭터 상태 변수
     private bool isJump;
     private float slideTime;
     private float zPos;
@@ -43,6 +46,9 @@ public class Character : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, zPos), 0.05f);
         zPos += speed * Time.deltaTime;
     }
+
+
+
 
     //캐릭터 움직임
     void CharacterMove()
@@ -77,6 +83,9 @@ public class Character : MonoBehaviour
         if (slideTime>0)
         {
             slideTime -= Time.deltaTime;
+        }
+        else
+        {
             colider[0].enabled = true;
             colider[1].enabled = false;
         }
@@ -86,5 +95,18 @@ public class Character : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
             isJump = false;
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Dead");
+            Dead();
+        }
+            
+    }
+
+    private void Dead()
+    {
+        speed = 0;
+        anim.SetTrigger("Dead");
     }
 }
