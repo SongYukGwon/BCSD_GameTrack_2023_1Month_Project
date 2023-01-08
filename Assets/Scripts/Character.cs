@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     private Rigidbody rigid;
     [SerializeField]
     public Collider[] colider;
+    public int speed;
     private Animator anim;
 
 
@@ -16,6 +17,7 @@ public class Character : MonoBehaviour
     private int routeIndex;
     private bool isJump;
     private float slideTime;
+    private float zPos;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,6 +27,7 @@ public class Character : MonoBehaviour
         routeIndex = 1;
         isJump = false;
         slideTime = 0;
+        zPos = 0;
     }
 
     // Update is called once per frame
@@ -37,8 +40,8 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, 0), 0.05f);
-    
+        transform.position = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, zPos), 0.05f);
+        zPos += speed * Time.deltaTime;
     }
 
     //캐릭터 움직임
