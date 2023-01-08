@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
     {
         CharacterMove();
         CharacterJump();
+        CharacterSlide();
     }
 
     private void FixedUpdate()
@@ -64,12 +65,12 @@ public class Character : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             anim.SetTrigger("Slided");
+            Debug.Log("123");
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("123");
         if (collision.gameObject.CompareTag("Ground"))
             isJump = false;
     }
