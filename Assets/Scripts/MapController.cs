@@ -5,7 +5,7 @@ using UnityEngine;
 public class MapController : MonoBehaviour
 {
     public Vector3 startPos;
-    public GameObject ground;
+    public GameObject[] grounds;
     public float groundLength;
 
     //int groundCount = 1;
@@ -20,12 +20,18 @@ public class MapController : MonoBehaviour
     {
         if (transform.position.z > currentGroundPos.z)
         {
-            Vector3 newPosition = new Vector3(currentGroundPos.x, currentGroundPos.y,
-                currentGroundPos.z + groundLength);
-            Instantiate(ground, newPosition, transform.rotation);
-            currentGroundPos = newPosition;
+            SpawnGround();
             //groundCount++;
             //Debug.Log(groundCount);
         }
+    }
+
+    void SpawnGround()
+    {
+        int index = Random.Range(0, grounds.Length);
+        Vector3 newPosition = new Vector3(currentGroundPos.x, currentGroundPos.y,
+                currentGroundPos.z + groundLength);
+        Instantiate(grounds[index], newPosition, transform.rotation);
+        currentGroundPos = newPosition;
     }
 }
