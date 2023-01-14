@@ -7,8 +7,8 @@ public class PlayerContoller : MonoBehaviour
 {
     private Rigidbody rigid;
     [SerializeField]
-    public Collider[] colider;
-    public int speed;
+    public Collider[] colider; // 0:Idle 1:Slide 2:Jump
+    public float speed;
     private Animator anim;
     private GameManager gameManager;
 
@@ -51,8 +51,10 @@ public class PlayerContoller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, transform.position.z+speed), Time.deltaTime*7f);
-        //zPos += speed * Time.deltaTime;
+        Vector3 movement = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, transform.position.z+speed), Time.deltaTime*7f);
+        //zPos += speed * Time.deltaTime;\
+        //Vector3 movement = Vector3.Lerp(route[routeIndex], 0, transform.position.z+speed);
+        rigid.MovePosition(movement);
     }
 
 
@@ -62,9 +64,15 @@ public class PlayerContoller : MonoBehaviour
     void CharacterMove()
     {
         if (Input.GetKeyDown(KeyCode.A) && routeIndex > 0)
+        {
             routeIndex--;
+        }
+
         if(Input.GetKeyDown(KeyCode.D) && routeIndex < 2)
+        {
             routeIndex++;
+        }
+
     }
 
     void CharacterJump()
@@ -91,7 +99,7 @@ public class PlayerContoller : MonoBehaviour
         {
             slideTime -= Time.deltaTime;
         }
-        else
+        else if(!isJump)
         {
             colider[0].enabled = true;
             colider[1].enabled = false;

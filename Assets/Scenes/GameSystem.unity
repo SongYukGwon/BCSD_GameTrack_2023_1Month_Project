@@ -711,6 +711,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5333447398838038862, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890793179970502526, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6627511402364630868, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -718,6 +726,22 @@ PrefabInstance:
     - target: {fileID: 8750914301045023563, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: speed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750914301045023563, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: colider.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750914301045023563, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: colider.Array.data[2]
+      value: 
+      objectReference: {fileID: 2088031761}
+    - target: {fileID: 9160164080953423770, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Size.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160164080953423770, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
@@ -1702,3 +1726,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2088031761 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 9160164080953423770, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  m_PrefabInstance: {fileID: 836424902}
+  m_PrefabAsset: {fileID: 0}
