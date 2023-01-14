@@ -11,6 +11,8 @@ public class PlayerContoller : MonoBehaviour
     public int speed;
     private Animator anim;
 
+    private Vector3 moveVec;
+
 
     //캐릭터 움직임 변수
     private int[] route = {-2,0,2};
@@ -43,8 +45,8 @@ public class PlayerContoller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, zPos), 0.05f);
-        zPos += speed * Time.deltaTime;
+        transform.position = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, transform.position.z+speed), Time.deltaTime*7f);
+        //zPos += speed * Time.deltaTime;
     }
 
 
@@ -61,7 +63,6 @@ public class PlayerContoller : MonoBehaviour
 
     void CharacterJump()
     {
-
         if (Input.GetKeyDown(KeyCode.W) && !isJump)
         {
             rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);

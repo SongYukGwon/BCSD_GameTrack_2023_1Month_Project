@@ -39,6 +39,7 @@ public class MoveObstacle : MonoBehaviour
     {
         orginPos = transform.position;
         isMoving = true;
+        Debug.Log("Try");
     }
 
 
