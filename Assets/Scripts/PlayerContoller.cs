@@ -10,6 +10,7 @@ public class PlayerContoller : MonoBehaviour
     public Collider[] colider;
     public int speed;
     private Animator anim;
+    private GameManager gameManager;
 
     private Vector3 moveVec;
 
@@ -23,6 +24,7 @@ public class PlayerContoller : MonoBehaviour
     private bool isJump;
     private float slideTime;
     private float zPos;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,14 +35,18 @@ public class PlayerContoller : MonoBehaviour
         isJump = false;
         slideTime = 0;
         zPos = 0;
+        isDead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CharacterMove();
-        CharacterJump();
-        CharacterSlide();
+        if(!isDead)
+        {
+            CharacterMove();
+            CharacterJump();
+            CharacterSlide();
+        }
     }
 
     private void FixedUpdate()
@@ -99,15 +105,21 @@ public class PlayerContoller : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Dead");
             Dead();
         }
             
     }
 
+
+    //캐릭터 죽었을때 실행되는 함수
     private void Dead()
     {
+        //캐릭터 정산 필요
         speed = 0;
+        isDead = true;
+        gameManager = GameManager.GetInstaince();
+        gameManager.SeeDeadMenu();
+        
         anim.SetTrigger("Dead");
     }
 }
