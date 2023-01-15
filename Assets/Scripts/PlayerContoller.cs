@@ -8,7 +8,8 @@ public class PlayerContoller : MonoBehaviour
     private Rigidbody rigid;
     [SerializeField]
     public Collider[] colider; // 0:Idle 1:Slide 2:Jump
-    public float speed;
+    public float basicSpeed;
+    private float speed;
     private Animator anim;
     private GameManager gameManager;
 
@@ -38,26 +39,39 @@ public class PlayerContoller : MonoBehaviour
         isDead = false;
     }
 
+    private void Start()
+    {
+        gameManager = GameManager.GetInstaince();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if(!isDead)
         {
-            CharacterMove();
-            CharacterJump();
-            CharacterSlide();
+            CharacterMove(); // 캐릭터 좌우 인식
+            CharacterJump(); // 캐릭터 점프 인식
+            CharacterSlide(); // 캐릭터 슬라이드 인식
+            CharacterScore(); // 캐릭터 점수 업데이트
         }
     }
 
+    //캐릭터 움직임
     private void FixedUpdate()
     {
         Vector3 movement = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, transform.position.z+speed), Time.deltaTime*7f);
-        //zPos += speed * Time.deltaTime;\
+        //zPos += speed * Time.deltaTime;
         //Vector3 movement = Vector3.Lerp(route[routeIndex], 0, transform.position.z+speed);
         rigid.MovePosition(movement);
     }
 
-
+    //캐릭터 점수 및 속도 업데이트
+    private void CharacterScore()
+    {
+        zPos += speed * Time.deltaTime;
+        gameManager.UpdateScoreText((int)(zPos*10));
+        speed = basicSpeed + zPos / 500;
+    }
 
 
     //캐릭터 움직임
@@ -106,6 +120,7 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
+    //플레이어 충돌
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -115,7 +130,6 @@ public class PlayerContoller : MonoBehaviour
         {
             Dead();
         }
-            
     }
 
 
@@ -125,9 +139,7 @@ public class PlayerContoller : MonoBehaviour
         //캐릭터 정산 필요
         speed = 0;
         isDead = true;
-        gameManager = GameManager.GetInstaince();
         gameManager.SeeDeadMenu();
-        
         anim.SetTrigger("Dead");
     }
 }

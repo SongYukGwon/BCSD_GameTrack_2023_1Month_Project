@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,10 +17,12 @@ public class GameManager : MonoBehaviour
     private PlayerContoller playerContoller;
 
     [SerializeField]
-    private GameObject DeadMenu; 
+    private GameObject DeadMenu;
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         instance = this;
     }
@@ -28,4 +31,10 @@ public class GameManager : MonoBehaviour
     {
         DeadMenu.SetActive(true);
     }
+
+    public void UpdateScoreText(int text)
+    {
+        scoreText.text = text.ToString();
+    }
+
 }
