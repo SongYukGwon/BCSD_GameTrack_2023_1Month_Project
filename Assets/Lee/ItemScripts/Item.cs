@@ -10,7 +10,7 @@ public abstract class Item : MonoBehaviour
     float currentDuration;
     Material newMaterial; // ≈ı∏Ì«— Material
 
-    private void Start()
+    void Start()
     {
         currentDuration = itemInfo.duration;
         player = GameObject.Find("Player");
