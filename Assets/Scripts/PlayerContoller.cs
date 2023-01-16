@@ -7,9 +7,11 @@ public class PlayerContoller : MonoBehaviour
 {
     private Rigidbody rigid;
     [SerializeField]
-    public Collider[] colider;
-    public int speed;
+    public Collider[] colider; // 0:Idle 1:Slide 2:Jump
+    public float basicSpeed;
+    private float speed;
     private Animator anim;
+    private GameManager gameManager;
 
     private Vector3 moveVec;
 
@@ -23,6 +25,7 @@ public class PlayerContoller : MonoBehaviour
     private bool isJump;
     private float slideTime;
     private float zPos;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,32 +36,57 @@ public class PlayerContoller : MonoBehaviour
         isJump = false;
         slideTime = 0;
         zPos = 0;
+        isDead = false;
+    }
+
+    private void Start()
+    {
+        gameManager = GameManager.GetInstaince();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CharacterMove();
-        CharacterJump();
-        CharacterSlide();
+        if(!isDead)
+        {
+            CharacterMove(); // 캐릭터 좌우 인식
+            CharacterJump(); // 캐릭터 점프 인식
+            CharacterSlide(); // 캐릭터 슬라이드 인식
+            CharacterScore(); // 캐릭터 점수 업데이트
+        }
     }
 
+    //캐릭터 움직임
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, transform.position.z+speed), Time.deltaTime*7f);
+        Vector3 movement = Vector3.Lerp(transform.position, new Vector3(route[routeIndex], 0, transform.position.z+speed), Time.deltaTime*7f);
         //zPos += speed * Time.deltaTime;
+        //Vector3 movement = Vector3.Lerp(route[routeIndex], 0, transform.position.z+speed);
+        rigid.MovePosition(movement);
     }
 
-
+    //캐릭터 점수 및 속도 업데이트
+    private void CharacterScore()
+    {
+        zPos += speed * Time.deltaTime;
+        gameManager.UpdateScoreText((int)(zPos*10));
+        speed = basicSpeed + zPos / 500;
+    }
 
 
     //캐릭터 움직임
     void CharacterMove()
     {
         if (Input.GetKeyDown(KeyCode.A) && routeIndex > 0)
+        {
             routeIndex--;
+        }
+
         if(Input.GetKeyDown(KeyCode.D) && routeIndex < 2)
+        {
             routeIndex++;
+        }
+
     }
 
     void CharacterJump()
@@ -85,13 +113,14 @@ public class PlayerContoller : MonoBehaviour
         {
             slideTime -= Time.deltaTime;
         }
-        else
+        else if(!isJump)
         {
             colider[0].enabled = true;
             colider[1].enabled = false;
         }
     }
 
+    //플레이어 충돌
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -99,15 +128,18 @@ public class PlayerContoller : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Dead");
             Dead();
         }
-            
     }
 
+
+    //캐릭터 죽었을때 실행되는 함수
     private void Dead()
     {
+        //캐릭터 정산 필요
         speed = 0;
+        isDead = true;
+        gameManager.SeeDeadMenu();
         anim.SetTrigger("Dead");
     }
 }
