@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState { Running, Dead, Invincible }
+
 public class PlayerContoller : MonoBehaviour
 {
     private Rigidbody rigid;
@@ -26,6 +28,7 @@ public class PlayerContoller : MonoBehaviour
     private float slideTime;
     private float zPos;
     private bool isDead;
+    private bool isInvincible;
 
     // Start is called before the first frame update
     void Awake()
@@ -37,6 +40,7 @@ public class PlayerContoller : MonoBehaviour
         slideTime = 0;
         zPos = 0;
         isDead = false;
+        isInvincible = false;
     }
 
     private void Start()
@@ -126,7 +130,7 @@ public class PlayerContoller : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
             isJump = false;
 
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") && !isInvincible)
         {
             Dead();
         }
@@ -142,5 +146,32 @@ public class PlayerContoller : MonoBehaviour
         coin += gameManager.UpdateCoin();
         gameManager.SeeDeadMenu();
         anim.SetTrigger("Dead");
+    }
+
+    public void ChangePlayerState(PlayerState state)
+    {
+        switch (state)
+        {
+            case PlayerState.Running:
+                {
+                    isDead = false;
+                    isInvincible = false;
+                    break;
+                }
+            case PlayerState.Dead:
+                {
+                    isDead = true;
+                    isInvincible = false;
+                    break;
+                }
+            case PlayerState.Invincible:
+                {
+                    isDead = false;
+                    isInvincible = true;
+                    break;
+                }
+            default:
+                break;
+        }
     }
 }
