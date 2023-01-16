@@ -7,12 +7,12 @@ public class PlayerContoller : MonoBehaviour
 {
     private Rigidbody rigid;
     [SerializeField]
-    public Collider[] colider; // 0:Idle 1:Slide 2:Jump
+    public Collider[] colider; // 0:Idle 1:Slide
     public float basicSpeed;
     private float speed;
     private Animator anim;
     private GameManager gameManager;
-
+    private int coin=0;
     private Vector3 moveVec;
 
 
@@ -139,6 +139,7 @@ public class PlayerContoller : MonoBehaviour
         //캐릭터 정산 필요
         speed = 0;
         isDead = true;
+        coin += gameManager.UpdateCoin();
         gameManager.SeeDeadMenu();
         anim.SetTrigger("Dead");
     }

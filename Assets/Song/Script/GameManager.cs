@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     private GameObject DeadMenu;
     [SerializeField]
     private TextMeshProUGUI scoreText;
+    [SerializeField]
+    private TextMeshProUGUI coinText;
+    private int getCoin =0;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,6 +38,17 @@ public class GameManager : MonoBehaviour
     public void UpdateScoreText(int text)
     {
         scoreText.text = text.ToString();
+    }
+
+    public void PlusCoin(int coin)
+    {
+        getCoin += coin;
+        coinText.text = getCoin.ToString();
+    }
+
+    public int UpdateCoin()
+    {
+        return getCoin;
     }
 
 }

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class BoostItem : Item
 {
-    public int boostSpeed = 0;
-    int prevSpeed;
+    public float boostSpeed = 0;
+    float prevSpeed;
 
     protected override void ItemUse()
     {
         if (player == null) Debug.Log("Player Null");
-        prevSpeed = player.GetComponent<PlayerContoller>().speed;
-        player.GetComponent<PlayerContoller>().speed = boostSpeed;
+        prevSpeed = player.GetComponent<PlayerContoller>().basicSpeed;
+        player.GetComponent<PlayerContoller>().basicSpeed = boostSpeed;
     }
 
     protected override void ItemEnd()
     {
-        player.GetComponent<PlayerContoller>().speed = prevSpeed;
+        player.GetComponent<PlayerContoller>().basicSpeed = prevSpeed;
     }
 }

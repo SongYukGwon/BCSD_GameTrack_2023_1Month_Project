@@ -28,6 +28,7 @@ public class CoinItem : MonoBehaviour
         else if (other.CompareTag("Player"))
         {
             // 코인 개수 증가 코드
+            GameManager.GetInstaince().PlusCoin(1);
             Debug.Log("Coin Added");
             Destroy(gameObject);
         }
