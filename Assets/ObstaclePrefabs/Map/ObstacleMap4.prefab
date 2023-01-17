@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6592050439770664654}
   - component: {fileID: 3509328366711619966}
   - component: {fileID: 4754084483500817528}
+  - component: {fileID: 469572234984400224}
   m_Layer: 0
   m_Name: ObstacleMap4
   m_TagString: Ground
@@ -101,6 +102,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &469572234984400224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657584299423203570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718c2cc4cd07a904fb811386fbee678d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLength: 20
 --- !u!1001 &935470315790014040
 PrefabInstance:
   m_ObjectHideFlags: 0

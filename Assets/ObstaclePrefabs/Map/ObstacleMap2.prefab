@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6052975381370980590}
   - component: {fileID: 4596051472457525086}
   - component: {fileID: 5657138364754860632}
+  - component: {fileID: 685237953149335745}
   m_Layer: 0
   m_Name: ObstacleMap2
   m_TagString: Ground
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5753568180366681810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.03, y: 0, z: 8.88}
-  m_LocalScale: {x: 0.6, y: 1, z: 2.1005}
+  m_LocalScale: {x: 0.6, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4623549425269158089}
@@ -101,6 +102,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &685237953149335745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753568180366681810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718c2cc4cd07a904fb811386fbee678d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLength: 20
 --- !u!1001 &1649297035617993530
 PrefabInstance:
   m_ObjectHideFlags: 0
