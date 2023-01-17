@@ -14,9 +14,6 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField]
-    private PlayerContoller playerContoller;
-
-    [SerializeField]
     private GameObject DeadMenu;
     [SerializeField]
     private TextMeshProUGUI scoreText;
@@ -27,7 +24,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void SeeDeadMenu()
@@ -46,9 +49,11 @@ public class GameManager : MonoBehaviour
         coinText.text = getCoin.ToString();
     }
 
-    public int UpdateCoin()
+    public void UpdateCoin()
     {
-        return getCoin;
+        PlayerData data = DataManager.GetInstance().LoadData();
+        data.coin += getCoin;
+        DataManager.GetInstance().SaveData(data);
     }
 
 }

@@ -14,7 +14,6 @@ public class PlayerContoller : MonoBehaviour
     private float speed;
     private Animator anim;
     private GameManager gameManager;
-    private int coin=0;
     private Vector3 moveVec;
 
 
@@ -29,6 +28,7 @@ public class PlayerContoller : MonoBehaviour
     private float zPos;
     private bool isDead;
     private bool isInvincible;
+    private int coin;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,6 +46,7 @@ public class PlayerContoller : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.GetInstaince();
+        coin = DataManager.GetInstance().LoadData().coin;
     }
 
     // Update is called once per frame
@@ -143,7 +144,7 @@ public class PlayerContoller : MonoBehaviour
         //캐릭터 정산 필요
         speed = 0;
         isDead = true;
-        coin += gameManager.UpdateCoin();
+        gameManager.UpdateCoin();
         gameManager.SeeDeadMenu();
         anim.SetTrigger("Dead");
     }

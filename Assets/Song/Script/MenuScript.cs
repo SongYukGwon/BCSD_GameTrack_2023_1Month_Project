@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleScript : MonoBehaviour
+public class MenuScript : MonoBehaviour
 {
     public void GameStartBtn()
     {
-        Debug.Log("게임시작");
         Invoke("StartGame", .3f);
     }
 
