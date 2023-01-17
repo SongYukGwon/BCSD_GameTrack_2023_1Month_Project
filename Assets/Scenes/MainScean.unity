@@ -1911,17 +1911,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
   m_PrefabInstance: {fileID: 836424902}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &836424904 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8750914301045023563, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
-  m_PrefabInstance: {fileID: 836424902}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d66872e59b96e34f946373d68514b4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &902313597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3520,7 +3509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a601503f4362346afa527f8a5679df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerContoller: {fileID: 836424904}
   DeadMenu: {fileID: 385323901}
   scoreText: {fileID: 223536515}
   coinText: {fileID: 1590326752}
