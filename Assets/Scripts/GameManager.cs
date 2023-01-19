@@ -13,8 +13,7 @@ public class GameManager : MonoBehaviour
         return instance; 
     }
 
-    [SerializeField]
-    private GameObject DeadMenu;
+    GameObject canvas;
     [SerializeField]
     private TextMeshProUGUI scoreText;
     [SerializeField]
@@ -35,7 +34,10 @@ public class GameManager : MonoBehaviour
 
     public void SeeDeadMenu()
     {
-        DeadMenu.SetActive(true);
+        if(canvas == null)
+            canvas = GameObject.FindGameObjectWithTag("UI");
+        Debug.Log(canvas.name);
+        canvas.GetComponent<DeadMenu>().SeeDeadMenu();
     }
 
     public void UpdateScoreText(int text)

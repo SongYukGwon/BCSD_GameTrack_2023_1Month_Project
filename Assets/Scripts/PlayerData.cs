@@ -8,8 +8,6 @@ public class PlayerData
     public int highScore;
     public List<int> itemLevel;
 
-
-
     public void printData()
     {
         Debug.Log(coin);
