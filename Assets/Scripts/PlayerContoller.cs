@@ -153,6 +153,7 @@ public class PlayerContoller : MonoBehaviour
     {
         gameObject.layer = 3;
         hitEffect.Play();
+        footEffect.Stop();
         speed = 0;
         isDead = true;
         gameManager.UpdateCoin();
