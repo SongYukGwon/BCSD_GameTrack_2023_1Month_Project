@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1716907070303248893}
   - component: {fileID: 3801002829151717567}
   - component: {fileID: 3085962535489277880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2WayMoveObstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1716907070303248895}
   - component: {fileID: 5212647006942020209}
   - component: {fileID: 196036156246552697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PP_Horse_Cart_Used_02_Wheels
   m_TagString: ObstacleTrigger
   m_Icon: {fileID: 0}
