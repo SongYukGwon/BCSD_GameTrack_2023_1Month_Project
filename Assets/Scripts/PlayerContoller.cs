@@ -11,7 +11,9 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField]
     public Collider[] colider; // 0:Idle 1:Slide
     [SerializeField]
-    private ParticleSystem footeffect;
+    private ParticleSystem footEffect;
+    [SerializeField]
+    private ParticleSystem hitEffect;
     public float basicSpeed;
     private float speed;
     private Animator anim;
@@ -100,7 +102,7 @@ public class PlayerContoller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) && !isJump)
         {
-            footeffect.Stop();
+            footEffect.Stop();
             rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
             anim.SetTrigger("Jumped");
             isJump = true;
@@ -112,7 +114,7 @@ public class PlayerContoller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && slideTime<=0)
         {
             anim.SetTrigger("Slided");
-            footeffect.Stop();
+            footEffect.Stop();
             rigid.AddForce(Vector3.down * 5, ForceMode.Impulse);
             slideTime = 0.8f;
             colider[0].enabled = false;
@@ -136,7 +138,7 @@ public class PlayerContoller : MonoBehaviour
         {
             isJump = false;
             if(!isDead && slideTime<=0)
-                footeffect.Play();
+                footEffect.Play();
         }
 
         if (collision.gameObject.CompareTag("Obstacle") && !isInvincible)
@@ -150,6 +152,7 @@ public class PlayerContoller : MonoBehaviour
     private void Dead()
     {
         gameObject.layer = 3;
+        hitEffect.Play();
         speed = 0;
         isDead = true;
         gameManager.UpdateCoin();
