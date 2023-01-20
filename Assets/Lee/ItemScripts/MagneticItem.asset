@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Magnetic
   duration: 5
-  itemKind: 1
+  itemKind: 0
   itemLevel: 1

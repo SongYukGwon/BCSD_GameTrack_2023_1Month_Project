@@ -15,6 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScean.unity
     guid: 3fe4d36ceb6936c4d829b0e051fa7458
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Effect.unity
     guid: 920a93a311570e244bd10e9fa93d356c
+=======
+    path: Assets/Scenes/Shop.unity
+    guid: 49a1075c7427b824bb34762914e1bcac
+>>>>>>> Shop
   m_configObjects: {}

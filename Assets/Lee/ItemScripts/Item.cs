@@ -12,7 +12,11 @@ public abstract class Item : MonoBehaviour
 
     void Start()
     {
-        currentDuration = itemInfo.duration;
+        if (itemInfo.itemKind != ItemKind.Revival)
+        {
+            currentDuration = itemInfo.duration +
+            DataManager.GetInstance().LoadData().itemLevel[(int)itemInfo.itemKind];
+        }
         player = GameObject.Find("Player");
         if (player == null) Debug.Log($"{gameObject.name} : No Player");
         newMaterial = Resources.Load<Material>("Materials/Transparent");
@@ -22,7 +26,6 @@ public abstract class Item : MonoBehaviour
     {
         if (currentDuration < 0)
         {
-            Debug.Log("Time Over");
             isItemUsing = false;
             ItemEnd();
             Destroy(gameObject);
@@ -43,12 +46,6 @@ public abstract class Item : MonoBehaviour
         }
     }
 
-    protected virtual void ItemUse()
-    {
-
-    }
-    protected virtual void ItemEnd()
-    {
-
-    }
+    protected virtual void ItemUse() {}
+    protected virtual void ItemEnd() {}
 }
