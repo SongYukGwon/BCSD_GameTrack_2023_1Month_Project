@@ -1049,7 +1049,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1044784151}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: GameStartBtn
+        m_MethodName: EngerShopButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

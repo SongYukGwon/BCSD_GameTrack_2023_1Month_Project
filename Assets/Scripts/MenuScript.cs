@@ -10,6 +10,11 @@ public class MenuScript : MonoBehaviour
         Invoke("StartGame", .3f);
     }
 
+    public void EngerShopButton()
+    {
+        SceneManager.LoadScene("Shop");
+    }
+
     private void StartGame()
     {
         SceneManager.LoadScene("MainScean");
