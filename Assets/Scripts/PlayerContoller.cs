@@ -49,6 +49,7 @@ public class PlayerContoller : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.PlayBgm(BGM.INGAME);
         gameManager = GameManager.GetInstaince();
         coin = DataManager.GetInstance().LoadData().coin;
     }
@@ -151,6 +152,9 @@ public class PlayerContoller : MonoBehaviour
     //캐릭터 죽었을때 실행되는 함수
     private void Dead()
     {
+        SoundManager.StopBgm();
+        SoundManager.PlaySfx(SFX.DEAD);
+
         gameObject.layer = 3;
         hitEffect.Play();
         speed = 0;

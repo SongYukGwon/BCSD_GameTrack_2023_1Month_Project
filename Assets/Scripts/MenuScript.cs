@@ -7,6 +7,7 @@ public class MenuScript : MonoBehaviour
 {
     public void GameStartBtn()
     {
+        SoundManager.PlaySfx(SFX.BUTTON);
         Invoke("StartGame", .3f);
     }
 
