@@ -7,14 +7,17 @@ TagManager:
   - Ground
   - Obstacle
   - ObstacleTrigger
+  - Coin
+  - CoinTaker
+  - UI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Dead
   - Water
   - UI
-  - 
+  - Obstacle
   - 
   - 
   - 

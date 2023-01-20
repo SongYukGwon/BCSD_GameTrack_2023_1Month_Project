@@ -10,6 +10,10 @@ public class PlayerContoller : MonoBehaviour
     private Rigidbody rigid;
     [SerializeField]
     public Collider[] colider; // 0:Idle 1:Slide
+    [SerializeField]
+    private ParticleSystem footEffect;
+    [SerializeField]
+    private ParticleSystem hitEffect;
     public float basicSpeed;
     private float speed;
     private Animator anim;
@@ -98,6 +102,7 @@ public class PlayerContoller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) && !isJump)
         {
+            footEffect.Stop();
             rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
             anim.SetTrigger("Jumped");
             isJump = true;
@@ -109,6 +114,7 @@ public class PlayerContoller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && slideTime<=0)
         {
             anim.SetTrigger("Slided");
+            footEffect.Stop();
             rigid.AddForce(Vector3.down * 5, ForceMode.Impulse);
             slideTime = 0.8f;
             colider[0].enabled = false;
@@ -118,7 +124,7 @@ public class PlayerContoller : MonoBehaviour
         {
             slideTime -= Time.deltaTime;
         }
-        else if(!isJump)
+        else
         {
             colider[0].enabled = true;
             colider[1].enabled = false;
@@ -129,7 +135,11 @@ public class PlayerContoller : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
+        {
             isJump = false;
+            if(!isDead && slideTime<=0)
+                footEffect.Play();
+        }
 
         if (collision.gameObject.CompareTag("Obstacle") && !isInvincible)
         {
@@ -141,7 +151,9 @@ public class PlayerContoller : MonoBehaviour
     //캐릭터 죽었을때 실행되는 함수
     private void Dead()
     {
-        //캐릭터 정산 필요
+        gameObject.layer = 3;
+        hitEffect.Play();
+        footEffect.Stop();
         speed = 0;
         isDead = true;
         gameManager.UpdateCoin();

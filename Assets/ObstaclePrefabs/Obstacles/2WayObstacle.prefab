@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7943129684428282636}
   - component: {fileID: 7943129684424858412}
   - component: {fileID: 7943129684425857516}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PP_Horse_Cart_Used_02_Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7943129684424858414}
   - component: {fileID: 7943129684425857518}
   - component: {fileID: 5573160903967223980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2WayObstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
