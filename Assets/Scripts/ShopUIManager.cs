@@ -4,10 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class ShopUIManager : MonoBehaviour
 {
     public GameObject itemTab;
+    public GameObject shopTab;
+    public Camera skinCamera;
+
+    public GameObject UISpawner;
+
+    public TextMeshProUGUI characterStatus;
+    public TextMeshProUGUI characterCoin;
+
 
     public TextMeshProUGUI item1_lv;
     public TextMeshProUGUI item2_lv;
@@ -27,6 +36,8 @@ public class ShopUIManager : MonoBehaviour
             int level = DataManager.GetInstance().LoadData().itemLevel[i - 1];
             UpdateItemLevelUI(i, level);
         }
+        skinCamera.enabled = false;
+        
     }
 
     public void OpenItemShop()
@@ -36,7 +47,14 @@ public class ShopUIManager : MonoBehaviour
 
     public void OpenSkinShop()
     {
-        Debug.Log("Skin Shop Opened");
+        shopTab.SetActive(true);
+        skinCamera.enabled = true;
+        PlayerData data = DataManager.GetInstance().LoadData();
+        if (data.characterStatus[data.character] == true)
+        {
+            characterCoin.text = "";
+            characterStatus.text = "Equip";
+        }
     }
 
     public void BackToMenu()
@@ -48,6 +66,31 @@ public class ShopUIManager : MonoBehaviour
     {
         itemTab.SetActive(false);
     }
+
+    public void ShopTap_BackButton()
+    {
+        shopTab.SetActive(false);
+        skinCamera.enabled = false;
+    }
+
+
+    public void Next_CharacterBtn(int num)
+    {
+        UISpawner.GetComponent<Spawn>().ChangeCharacter(num);
+        int index = UISpawner.GetComponent<Spawn>().GetIndex();
+        PlayerData data = DataManager.GetInstance().LoadData();
+        if (data.characterStatus[index] == false)
+        {
+            characterCoin.text = "100G";
+            characterStatus.text = "Buy";
+        }
+        else
+        {
+            characterCoin.text = "";
+            characterStatus.text = "Equip";
+        }
+    }
+
 
     public void ItemTab_Upgrade(GameObject text)
     {
