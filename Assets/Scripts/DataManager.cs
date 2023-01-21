@@ -37,7 +37,7 @@ public class DataManager : MonoBehaviour
         else
         {
             data = new PlayerData();
-
+            data.character = 0;
             data.coin = 100;
             data.itemLevel = Enumerable.Repeat(1, 4).ToList();
         }

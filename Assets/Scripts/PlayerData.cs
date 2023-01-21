@@ -6,6 +6,7 @@ public class PlayerData
 {
     public int coin;
     public int highScore;
+    public int character;
     public List<int> itemLevel;
 
     public void printData()

@@ -57,4 +57,6 @@ public class GameManager : MonoBehaviour
         DataManager.GetInstance().SaveData(data);
     }
 
+
+
 }
