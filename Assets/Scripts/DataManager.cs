@@ -42,7 +42,7 @@ public class DataManager : MonoBehaviour
             data.itemLevel = Enumerable.Repeat(1, 4).ToList();
         }
 
-        data.printData();
+
 
         return data;
 

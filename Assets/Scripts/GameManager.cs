@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     {
         if(canvas == null)
             canvas = GameObject.FindGameObjectWithTag("UI");
-        Debug.Log(canvas.name);
         canvas.GetComponent<DeadMenu>().SeeDeadMenu();
     }
 
