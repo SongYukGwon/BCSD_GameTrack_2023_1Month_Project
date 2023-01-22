@@ -43,8 +43,8 @@ public class SoundManager : MonoBehaviour, ISingleton
             DontDestroyOnLoad(gameObject);
         }
         // 사운드 초기화
-        this.sfxSource.loop = false;    
-        this.bgmSource.loop = true;
+        //this.sfxSource.loop = false;    
+        //this.bgmSource.loop = true;
     }
     #endregion
     public static void PlayBgm(BGM _bgmType)

@@ -13,6 +13,7 @@ public class ShopUIManager : MonoBehaviour
     public Camera skinCamera;
 
     public GameObject UISpawner;
+    public TextMeshProUGUI CoinText;
 
     public TextMeshProUGUI characterStatus;
     public TextMeshProUGUI characterCoin;
@@ -37,7 +38,43 @@ public class ShopUIManager : MonoBehaviour
             UpdateItemLevelUI(i, level);
         }
         skinCamera.enabled = false;
-        
+        Invoke("UpdateCoin", 0.3f);
+    }
+
+    private void UpdateCoin()
+    {
+        PlayerData data = DataManager.GetInstance().LoadData();
+        CoinText.text = data.coin.ToString();
+    }
+
+    public void BuyAndEquipBtn(TextMeshProUGUI text)
+    {
+        string state = text.text;
+        int index = UISpawner.GetComponent<Spawn>().GetIndex();
+        PlayerData data = DataManager.GetInstance().LoadData();
+        switch (state)
+        {
+            case "Buy":
+                if (data.characterStatus[index] == false && data.coin >= 100)
+                {
+                    data.coin -= 100;
+                    data.characterStatus[index] = true;
+                    characterCoin.text = "";
+                    characterStatus.text = "Equip";
+                }
+                break;
+            case "Equip":
+                data.character = index;
+                characterStatus.text = "Equiped";
+                GameObject UISpawner = GameObject.Find("PlayerSpawn");
+                UISpawner.GetComponent<Spawn>().setCharacter(index);
+                break;
+            default:
+                characterCoin.text = "Already Equiped";
+                break;
+        }
+        DataManager.GetInstance().SaveData(data);
+        UpdateCoin();
     }
 
     public void OpenItemShop()
@@ -49,11 +86,12 @@ public class ShopUIManager : MonoBehaviour
     {
         shopTab.SetActive(true);
         skinCamera.enabled = true;
+        int index = UISpawner.GetComponent<Spawn>().GetIndex();
         PlayerData data = DataManager.GetInstance().LoadData();
         if (data.characterStatus[data.character] == true)
         {
             characterCoin.text = "";
-            characterStatus.text = "Equip";
+            characterStatus.text = "Equiped";
         }
     }
 
@@ -88,7 +126,14 @@ public class ShopUIManager : MonoBehaviour
         else
         {
             characterCoin.text = "";
-            characterStatus.text = "Equip";
+            if (data.character == index)
+            {
+                characterStatus.text = "Equiped";
+            }
+            else
+            {
+                characterStatus.text = "Equip";
+            }
         }
     }
 

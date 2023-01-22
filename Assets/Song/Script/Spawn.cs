@@ -17,6 +17,13 @@ public class Spawn : MonoBehaviour
         index = data.character;
     }
 
+    public void setCharacter(int num)
+    {
+        characters[index].SetActive(false);
+        characters[num].SetActive(true);
+        index = num;
+    }
+
     public void ChangeCharacter(int next)
     {
         int prevIndex = index;
