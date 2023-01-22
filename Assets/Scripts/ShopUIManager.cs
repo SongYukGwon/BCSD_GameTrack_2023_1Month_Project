@@ -76,6 +76,7 @@ public class ShopUIManager : MonoBehaviour
 
     public void Next_CharacterBtn(int num)
     {
+        Debug.Log(num);
         UISpawner.GetComponent<Spawn>().ChangeCharacter(num);
         int index = UISpawner.GetComponent<Spawn>().GetIndex();
         PlayerData data = DataManager.GetInstance().LoadData();

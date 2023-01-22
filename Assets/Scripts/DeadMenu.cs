@@ -6,12 +6,11 @@ using UnityEngine.SceneManagement;
 public class DeadMenu : MonoBehaviour
 {
     private GameManager gameManager;
+    [SerializeField]
     private GameObject menu;
 
     private void Start()
     {
-        if (menu == null)
-            menu = transform.Find("DeadMenu").gameObject;
     }
 
     public void SeeDeadMenu()
