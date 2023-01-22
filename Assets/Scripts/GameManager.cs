@@ -41,11 +41,21 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScoreText(int text)
     {
+        if (scoreText == null)
+        {
+            GameObject obj = GameObject.Find("Number");
+            scoreText = obj.GetComponent<TextMeshProUGUI>();
+        }
         scoreText.text = text.ToString();
     }
 
     public void PlusCoin(int coin)
     {
+        if (coinText == null)
+        {
+            GameObject obj = GameObject.Find("CoinNumber");
+            coinText = obj.GetComponent<TextMeshProUGUI>();
+        }
         getCoin += coin;
         coinText.text = getCoin.ToString();
     }
@@ -54,6 +64,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerData data = DataManager.GetInstance().LoadData();
         data.coin += getCoin;
+        getCoin = 0;
         DataManager.GetInstance().SaveData(data);
     }
 

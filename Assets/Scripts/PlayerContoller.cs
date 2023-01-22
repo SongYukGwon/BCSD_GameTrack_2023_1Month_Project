@@ -104,7 +104,7 @@ public class PlayerContoller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && !isJump)
         {
             footEffect.Stop();
-            rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            rigid.AddForce(Vector3.up * 25, ForceMode.Impulse);
             anim.SetTrigger("Jumped");
             isJump = true;
         }
