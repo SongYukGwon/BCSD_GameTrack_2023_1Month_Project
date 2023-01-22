@@ -9,7 +9,7 @@ public class BoostItem : Item
 
     protected override void ItemUse()
     {
-        if (player == null) Debug.Log("Player Null");
+        if (player == null) player = GameObject.Find("Player"); ;
         prevSpeed = player.GetComponent<PlayerContoller>().basicSpeed;
         player.GetComponent<PlayerContoller>().basicSpeed = boostSpeed;
     }
