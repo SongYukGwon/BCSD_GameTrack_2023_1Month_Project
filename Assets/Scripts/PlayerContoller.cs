@@ -14,6 +14,8 @@ public class PlayerContoller : MonoBehaviour
     private ParticleSystem footEffect;
     [SerializeField]
     private ParticleSystem hitEffect;
+    [SerializeField]
+    private GameObject boostEffect;
     public float basicSpeed;
     private float speed;
     private Animator anim;
@@ -190,5 +192,11 @@ public class PlayerContoller : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void BoostEffectSwitch(bool isOn)
+    {
+        if(isOn) { boostEffect.SetActive(true); }
+        else { boostEffect.SetActive(false); }
     }
 }
