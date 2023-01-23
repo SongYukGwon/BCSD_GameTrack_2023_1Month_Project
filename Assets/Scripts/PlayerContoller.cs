@@ -82,7 +82,7 @@ public class PlayerContoller : MonoBehaviour
     {
         zPos += speed * Time.deltaTime;
         gameManager.UpdateScoreText((int)(zPos*10));
-        speed = basicSpeed + zPos / 500;
+        speed = basicSpeed + zPos / 400;
     }
 
 
@@ -118,7 +118,7 @@ public class PlayerContoller : MonoBehaviour
         {
             anim.SetTrigger("Slided");
             footEffect.Stop();
-            rigid.AddForce(Vector3.down * 5, ForceMode.Impulse);
+            rigid.AddForce(Vector3.down * 15, ForceMode.Impulse);
             slideTime = 0.8f;
             colider[0].enabled = false;
             colider[1].enabled = true;
@@ -140,8 +140,11 @@ public class PlayerContoller : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isJump = false;
-            if(!isDead && slideTime<=0)
+            if (!isDead && slideTime <= 0)
+            {
                 footEffect.Play();
+                anim.Play("RunForward");
+            }
         }
 
         if (collision.gameObject.CompareTag("Obstacle") && !isInvincible)

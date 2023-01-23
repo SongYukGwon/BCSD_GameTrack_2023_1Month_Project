@@ -18332,6 +18332,7 @@ MonoBehaviour:
   - {fileID: 681720134178516864}
   footEffect: {fileID: 681720135609067896}
   hitEffect: {fileID: 681720135342283827}
+  boostEffect: {fileID: 681720134318789673}
   basicSpeed: 1
 --- !u!54 &681720134178516895
 Rigidbody:
@@ -49884,6 +49885,7 @@ MonoBehaviour:
   - {fileID: 7722235302329788630}
   footEffect: {fileID: 3518228946205619842}
   hitEffect: {fileID: 3518228946460528342}
+  boostEffect: {fileID: 3518228947006449200}
   basicSpeed: 1
 --- !u!137 &5339137802283952319
 SkinnedMeshRenderer:
