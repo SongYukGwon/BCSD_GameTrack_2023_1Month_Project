@@ -42,13 +42,11 @@ public class SoundManager : MonoBehaviour, ISingleton
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        // 사운드 초기화
-        //this.sfxSource.loop = false;    
-        //this.bgmSource.loop = true;
     }
     #endregion
     public static void PlayBgm(BGM _bgmType)
     {
+        Instance.bgmSource.loop = true;
         int bgmType = (int)_bgmType;
         Instance.bgmSource.clip = Instance.bgmList[bgmType];
         Instance.bgmSource.Play();
@@ -57,6 +55,7 @@ public class SoundManager : MonoBehaviour, ISingleton
     public static void PlaySfx(SFX _sfxType)
     {
         int sfxNumber = (int)_sfxType;
+        Instance.sfxSource.loop = false;
         Instance.sfxSource.PlayOneShot(Instance.sfxList[sfxNumber], Instance.sfxSource.volume);
     }
 
