@@ -39,7 +39,7 @@ public class DataManager : MonoBehaviour
             data = new PlayerData();
             data.character = 0;
             data.coin = 100;
-            data.characterStatus = Enumerable.Repeat(false, 2).ToList();
+            data.characterStatus = Enumerable.Repeat(false, 3).ToList();
             data.characterStatus[0] = true;
             data.itemLevel = Enumerable.Repeat(1, 4).ToList();
             SaveData(data);
