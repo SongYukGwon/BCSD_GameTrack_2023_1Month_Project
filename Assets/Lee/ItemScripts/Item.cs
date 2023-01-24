@@ -26,6 +26,7 @@ public abstract class Item : MonoBehaviour
     {
         if (currentDuration < 0)
         {
+            Debug.Log("Time Overrrrrr");
             isItemUsing = false;
             ItemEnd();
             Destroy(gameObject);
@@ -38,7 +39,7 @@ public abstract class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isItemUsing)
         {
             gameObject.GetComponent<MeshRenderer>().material = newMaterial;
             ItemUse();

@@ -18,6 +18,7 @@ public class BoostItem : Item
 
     protected override void ItemEnd()
     {
+        Debug.Log($"{gameObject.name} Is Over");
         player.GetComponent<PlayerContoller>().basicSpeed = prevSpeed;
         player.GetComponent<PlayerContoller>().BoostEffectSwitch(false);
         player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);

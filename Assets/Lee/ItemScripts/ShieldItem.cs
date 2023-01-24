@@ -6,6 +6,7 @@ public class ShieldItem : Item
 {
     protected override void ItemUse()
     {
+        if (player == null) player = GameObject.Find("Player");
         player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Invincible);
     }
 
