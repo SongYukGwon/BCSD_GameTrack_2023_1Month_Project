@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         if (data.highScore < Int32.Parse(scoreText.text))
         {
             data.highScore = Int32.Parse(scoreText.text);
+            RankingScript.GetInstaince().OnClickTransactionSave(data.userId, data.highScore);
             DataManager.GetInstance().SaveData(data);
         }
     }

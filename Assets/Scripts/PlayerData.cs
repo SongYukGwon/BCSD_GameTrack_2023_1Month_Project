@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerData
 {
+    public string userId;
     public int coin;
     public int highScore;
     public int character;
