@@ -151,6 +151,7 @@ public class ShopUIManager : MonoBehaviour
             DataManager.GetInstance().SaveData(data);
 
             UpdateItemLevelUI(itemNum, data.itemLevel[itemNum - 1]); // 아이템 레벨 UI 변경
+            UpdateCoin();
         }
         else Debug.Log("No enough money");
     }
