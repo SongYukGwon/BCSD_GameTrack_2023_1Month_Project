@@ -166,6 +166,7 @@ public class PlayerContoller : MonoBehaviour
         speed = 0;
         isDead = true;
         gameManager.UpdateCoin();
+        gameManager.UpdateScore();
         gameManager.SeeDeadMenu();
         anim.SetTrigger("Dead");
     }

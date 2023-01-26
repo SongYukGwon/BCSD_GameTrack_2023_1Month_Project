@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,16 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void UpdateScore()
+    {
+        PlayerData data = DataManager.GetInstance().LoadData();
+        if (data.highScore < Int32.Parse(scoreText.text))
+        {
+            data.highScore = Int32.Parse(scoreText.text);
+            DataManager.GetInstance().SaveData(data);
+        }
     }
 
     public void SeeDeadMenu()
