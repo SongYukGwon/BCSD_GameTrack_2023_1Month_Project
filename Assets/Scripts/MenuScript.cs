@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject RankTab;
+
     public void GameStartBtn()
     {
         SoundManager.PlaySfx(SFX.BUTTON);
@@ -18,6 +21,14 @@ public class MenuScript : MonoBehaviour
 
     private void StartGame()
     {
-        SceneManager.LoadScene(1);
+        Debug.Log("Click");
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void RankButton()
+    {
+        RankTab.SetActive(true);
+        GameManager.GetInstaince().UpdateScore();
+        RankingScript.GetInstaince().TextLoad();
     }
 }

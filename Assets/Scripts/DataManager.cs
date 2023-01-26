@@ -37,6 +37,7 @@ public class DataManager : MonoBehaviour
         else
         {
             data = new PlayerData();
+            data.userId = "Null";
             data.character = 0;
             data.coin = 100;
             data.characterStatus = Enumerable.Repeat(false, 3).ToList();
