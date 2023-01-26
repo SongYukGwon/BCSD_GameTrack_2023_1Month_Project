@@ -12,6 +12,7 @@ public class ShieldItem : Item
 
     protected override void ItemEnd()
     {
+        Debug.Log($"{gameObject.name} : End");
         player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);
     }
 }
