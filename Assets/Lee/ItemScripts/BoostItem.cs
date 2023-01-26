@@ -5,23 +5,33 @@ using UnityEngine;
 public class BoostItem : Item
 {
     public float boostSpeed = 0;
-    float prevSpeed;
+    float prevSpeed = 1;
 
     protected override void ItemUse()
     {
-        if (player == null) player = GameObject.Find("Player");
-        prevSpeed = player.GetComponent<PlayerContoller>().basicSpeed;
-        player.GetComponent<PlayerContoller>().basicSpeed = boostSpeed;
-        player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Invincible);
-        player.GetComponent<PlayerContoller>().BoostEffectSwitch(true);
+        if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Boost) == false)
+        {
+            //if (player == null) player = GameObject.Find("Player");
+            prevSpeed = player.GetComponent<PlayerContoller>().basicSpeed;
+            player.GetComponent<PlayerContoller>().basicSpeed = boostSpeed;
+            player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Invincible);
+            player.GetComponent<PlayerContoller>().BoostEffectSwitch(true);
+        }
+
+        // 아이템 사용시간 할당
+        GameManager.ItemUseManager.AddItemDuration(ItemKind.Boost, itemInfo.duration);
     }
 
     protected override void ItemEnd()
     {
         Debug.Log($"{gameObject.name} : End");
+        if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Boost) == false)
+        {
+            player.GetComponent<PlayerContoller>().basicSpeed = prevSpeed;
+            player.GetComponent<PlayerContoller>().BoostEffectSwitch(false);
 
-        player.GetComponent<PlayerContoller>().basicSpeed = prevSpeed;
-        player.GetComponent<PlayerContoller>().BoostEffectSwitch(false);
-        player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);
+            if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Shield) == false)
+                player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);
+        }
     }
 }

@@ -8,10 +8,15 @@ public class MagneticItem : Item
     protected override void ItemUse()
     {
         if (player == null) player = GameObject.Find("Player");
-        coinTaker = Instantiate(coinTaker, player.transform);
+        if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Magnetic) == false)
+            coinTaker = Instantiate(coinTaker, player.transform);
+        GameManager.ItemUseManager.AddItemDuration(ItemKind.Magnetic, itemInfo.duration);
     }
     protected override void ItemEnd()
     {
-        Destroy(coinTaker);
+        if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Magnetic) == false)
+        {
+            Destroy(coinTaker);
+        }
     }
 }

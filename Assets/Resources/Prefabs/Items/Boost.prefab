@@ -112,4 +112,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: f2e76dff1efed4b4ab37b38f67a8471a, type: 2}
-  boostSpeed: 8
+  haveItem: 0
+  boostSpeed: 5

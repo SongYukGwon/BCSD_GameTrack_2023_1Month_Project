@@ -6,13 +6,18 @@ public class ShieldItem : Item
 {
     protected override void ItemUse()
     {
-        if (player == null) player = GameObject.Find("Player");
-        player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Invincible);
+        //if (player == null) player = GameObject.Find("Player");
+        if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Shield) == false)
+            player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Invincible);
+        // 아이템 지속시간 할당
+        GameManager.ItemUseManager.AddItemDuration(ItemKind.Shield, itemInfo.duration);
     }
 
     protected override void ItemEnd()
     {
         Debug.Log($"{gameObject.name} : End");
-        player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);
+        if(GameManager.ItemUseManager.CheckItemUsing(ItemKind.Shield) == false &&
+           GameManager.ItemUseManager.CheckItemUsing(ItemKind.Boost) == false)
+            player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);
     }
 }

@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
         return instance; 
     }
 
+    ItemUseManager itemUseManager;
+    public static ItemUseManager ItemUseManager { get { return GetInstaince().itemUseManager; } }
+
     GameObject canvas;
     [SerializeField]
     private TextMeshProUGUI scoreText;
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+        itemUseManager = GetComponent<ItemUseManager>();
         DontDestroyOnLoad(gameObject);
     }
 

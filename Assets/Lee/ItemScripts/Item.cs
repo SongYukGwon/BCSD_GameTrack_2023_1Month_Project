@@ -5,18 +5,12 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour
 {
     public ItemInfo itemInfo;
+    public bool haveItem = false;
     protected GameObject player;
-    bool isItemUsing = false;
-    float currentDuration;
     Material newMaterial; // ≈ı∏Ì«— Material
 
     void Start()
     {
-        if (itemInfo.itemKind != ItemKind.Revival)
-        {
-            currentDuration = itemInfo.duration +
-            DataManager.GetInstance().LoadData().itemLevel[(int)itemInfo.itemKind];
-        }
         player = GameObject.Find("Player");
         if (player == null) Debug.Log($"{gameObject.name} : No Player");
         newMaterial = Resources.Load<Material>("Materials/Transparent");
@@ -24,26 +18,24 @@ public abstract class Item : MonoBehaviour
 
     void Update()
     {
-        if (currentDuration < 0)
+        if (haveItem)
         {
-            Debug.Log("Time Overrrrrr");
-            isItemUsing = false;
-            ItemEnd();
-            Destroy(gameObject);
-        }
-        if (isItemUsing)
-        {
-            currentDuration -= Time.deltaTime;
+            if (GameManager.ItemUseManager.CheckItemUsing(itemInfo.itemKind) == false)
+            {
+                ItemEnd();
+                Destroy(gameObject);
+                haveItem = false;
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !isItemUsing)
+        if (other.CompareTag("Player"))
         {
             gameObject.GetComponent<MeshRenderer>().material = newMaterial;
             ItemUse();
-            isItemUsing = true;
+            haveItem = true;
         }
     }
 
