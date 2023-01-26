@@ -57,8 +57,6 @@ public class RankingScript : MonoBehaviour
                     IDictionary rankInfo = (IDictionary)data.Value;
                     strRank[count] = rankInfo["userId"].ToString() + ","
 + rankInfo["score"];
-                    Debug.Log(strRank[count]);
-                    Debug.Log(123);
                     count++;
                 }
             }
