@@ -19,11 +19,13 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    //데이터 저장 함수
     public void SaveData(PlayerData data)
     {
         File.WriteAllText(Application.dataPath + "/PlayerData.json", JsonUtility.ToJson(data));
     }
 
+    //데이터 불러오기 함수
     public PlayerData LoadData()
     {
         PlayerData data;

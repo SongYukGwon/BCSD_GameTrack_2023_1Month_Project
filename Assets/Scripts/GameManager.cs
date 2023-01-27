@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISingleton
 {
 
     static GameManager instance;
@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void UpdateScore()
+    //최고점수 달성 처리 함수
+    public void UpdateScoreData()
     {
         PlayerData data = DataManager.GetInstance().LoadData();
         if (data.highScore < Int32.Parse(scoreText.text))
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //플레이어 죽었을때 함수 보이기.
     public void SeeDeadMenu()
     {
         if(canvas == null)
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
         canvas.GetComponent<DeadMenu>().SeeDeadMenu();
     }
 
+    //플레이중 score UI갱신 함수
     public void UpdateScoreText(int text)
     {
         if (scoreText == null)
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = text.ToString();
     }
 
+    //코인 획득 함수 (UI및 현황 업데이트)
     public void PlusCoin(int coin)
     {
         if (coinText == null)
@@ -76,7 +80,8 @@ public class GameManager : MonoBehaviour
         coinText.text = getCoin.ToString();
     }
 
-    public void UpdateCoin()
+    //플레이어 소지 코인 업데이트
+    public void UpdateCoinData()
     {
         PlayerData data = DataManager.GetInstance().LoadData();
         data.coin += getCoin;

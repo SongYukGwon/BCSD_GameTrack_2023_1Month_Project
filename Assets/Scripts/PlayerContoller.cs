@@ -165,8 +165,8 @@ public class PlayerContoller : MonoBehaviour
         footEffect.Stop();
         speed = 0;
         isDead = true;
-        gameManager.UpdateCoin();
-        gameManager.UpdateScore();
+        gameManager.UpdateCoinData();
+        gameManager.UpdateScoreData();
         gameManager.SeeDeadMenu();
         anim.SetTrigger("Dead");
     }

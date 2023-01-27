@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//랭킹 UI 스크립트
 public class RankingUI : MonoBehaviour
 {
     [SerializeField]

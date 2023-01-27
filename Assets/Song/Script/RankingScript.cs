@@ -7,8 +7,10 @@ using Firebase.Extensions;
 using System;
 using TMPro;
 using System.Linq;
+using Unity.VisualScripting;
 
-public class RankingScript : MonoBehaviour
+//랭킹
+public class RankingScript : MonoBehaviour, ISingleton
 {
     DatabaseReference reference;
 
@@ -37,9 +39,10 @@ public class RankingScript : MonoBehaviour
         LoadRanking();
     }
 
+    //랭킹 불러오는 함수
     public void LoadRanking()
     {
-
+        //users목록을 불러와 성공하면 스냅샷을 찍어 가져와 정렬후 씀
         reference.Child("users").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
             {
@@ -64,11 +67,12 @@ public class RankingScript : MonoBehaviour
         });
     }
 
+    //불러온 데이터를 정렬후 UI입력
     public void TextLoad()
     {
         try
         {
-            //받아온 데이터 정렬 = > 위에서부터 아래로
+            //받아온 데이터 내림차순 정렬
             strRank.Sort((x, y) =>
             {
                 string[] a = x.Split(',');
@@ -97,6 +101,7 @@ public class RankingScript : MonoBehaviour
         }
     }
 
+    //랭킹 업데이트 시도 함수
     public void OnClickTransactionSave(string userId, int score)
     {
         const int MaxScoreRecordCount = 10;
@@ -127,7 +132,7 @@ public class RankingScript : MonoBehaviour
                 }
                 if (minScore > score)
                 {
-                    // 현재 점수가 최하위 점수보다 낮으면 중단합니다.(랭킹에 못오르니깐)
+                    // 현재 점수가 최하위 점수보다 낮으면 중단.
                     return TransactionResult.Abort();
                 }
 

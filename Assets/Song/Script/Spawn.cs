@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
+    //스폰 캐릭터 모음
     [SerializeField]
     private GameObject[] characters;
 
     private int index;
 
-    // Start is called before the first frame update
+
     private void Start()
     {
+        //사용자가 선택하고 있는 캐릭터 index를 받아와서 활성화
         PlayerData data = DataManager.GetInstance().LoadData();
         characters[data.character].SetActive(true);
         index = data.character;
     }
 
+    //선택된 캐릭터 보이기
     public void setCharacter(int num)
     {
         characters[index].SetActive(false);
@@ -24,6 +27,7 @@ public class Spawn : MonoBehaviour
         index = num;
     }
 
+    //캐릭터 체인지 2
     public void ChangeCharacter(int next)
     {
         int prevIndex = index;

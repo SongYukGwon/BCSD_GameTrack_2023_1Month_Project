@@ -15,6 +15,7 @@ public class LoginScript : MonoBehaviour
         Invoke("CheckOpen", 0.1f);
     }
 
+    //닉네임 창 오픈 여부 확인
     private void CheckOpen()
     {
         PlayerData data = DataManager.GetInstance().LoadData();
@@ -24,9 +25,10 @@ public class LoginScript : MonoBehaviour
         }
     }
 
+    //닉네임창 OK버튼 클릭 이벤트
     public void OnClickOK()
     {
-        
+        //닉네임 입력창 확인후 처리
         if(nickName.text == "")
         {
             notice.text = "닉네임을 입력하세요!";

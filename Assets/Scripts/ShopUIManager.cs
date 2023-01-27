@@ -41,12 +41,14 @@ public class ShopUIManager : MonoBehaviour
         Invoke("UpdateCoin", 0.3f);
     }
 
+    //코인 소비 함수
     private void UpdateCoin()
     {
         PlayerData data = DataManager.GetInstance().LoadData();
         CoinText.text = data.coin.ToString();
     }
 
+    //구매 및 장착 버튼 이벤트 함수
     public void BuyAndEquipBtn(TextMeshProUGUI text)
     {
         string state = text.text;
@@ -77,11 +79,13 @@ public class ShopUIManager : MonoBehaviour
         UpdateCoin();
     }
 
+    //아이템 탭 버튼 이벤트 함수
     public void OpenItemShop()
     {
         itemTab.SetActive(true);
     }
 
+    //캐릭터 탭 버튼 이벤트 함수
     public void OpenSkinShop()
     {
         shopTab.SetActive(true);
@@ -95,26 +99,28 @@ public class ShopUIManager : MonoBehaviour
         }
     }
 
+    //상점 나가기 버튼 이벤트 함수
     public void BackToMenu()
     {
         SceneManager.LoadScene("Title");
     }
 
+    //아이템 탭 나가기 버튼 이벤트 함수
     public void ItemTab_BackButton()
     {
         itemTab.SetActive(false);
     }
 
+    //상점 탭 나가기 버튼 이벤트 함수
     public void ShopTap_BackButton()
     {
         shopTab.SetActive(false);
         skinCamera.enabled = false;
     }
 
-
+    //상점 UI 보는 캐릭터 바꾸기 버튼 이벤트 함수
     public void Next_CharacterBtn(int num)
     {
-        Debug.Log(num);
         UISpawner.GetComponent<Spawn>().ChangeCharacter(num);
         int index = UISpawner.GetComponent<Spawn>().GetIndex();
         PlayerData data = DataManager.GetInstance().LoadData();
@@ -137,7 +143,7 @@ public class ShopUIManager : MonoBehaviour
         }
     }
 
-
+    //아이템 업그레이드 버튼 이벤트 함수
     public void ItemTab_Upgrade(GameObject text)
     {
         PlayerData data = DataManager.GetInstance().LoadData();
@@ -156,6 +162,7 @@ public class ShopUIManager : MonoBehaviour
         else Debug.Log("No enough money");
     }
 
+    //아이템 레벨 업 함수
     private void UpdateItemLevelUI(int itemNum, int level)
     {
         switch (itemNum)

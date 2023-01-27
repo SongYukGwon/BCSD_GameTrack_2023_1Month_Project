@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//움직이는 장애물 스크립트
 public class MoveObstacle : MonoBehaviour
 {
     private bool isMoving;
@@ -28,13 +30,10 @@ public class MoveObstacle : MonoBehaviour
     void Move()
     {
         if (isMoving)
-        {
             transform.position += dir * speed;
-        }
-
-        
     }
 
+    //트리거에서 움직이게하는 함수
     public void StartMoving()
     {
         orginPos = transform.position;

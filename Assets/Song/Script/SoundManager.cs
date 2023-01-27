@@ -20,11 +20,13 @@ public class SoundManager : MonoBehaviour, ISingleton
 
     public static SoundManager Instance;
 
+    //사운드 출력 컴포넌트 변수
     [SerializeField]
     private AudioSource sfxSource = null;
     [SerializeField]
     private AudioSource bgmSource = null;
 
+    //사용되는 음원 리스트
     [SerializeField]
     private AudioClip[] sfxList = { };
     [SerializeField]
@@ -43,6 +45,8 @@ public class SoundManager : MonoBehaviour, ISingleton
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    //브금 플레이
     #endregion
     public static void PlayBgm(BGM _bgmType)
     {
@@ -52,6 +56,7 @@ public class SoundManager : MonoBehaviour, ISingleton
         Instance.bgmSource.Play();
     }
 
+    //효과음 플레이
     public static void PlaySfx(SFX _sfxType)
     {
         int sfxNumber = (int)_sfxType;
@@ -59,6 +64,7 @@ public class SoundManager : MonoBehaviour, ISingleton
         Instance.sfxSource.PlayOneShot(Instance.sfxList[sfxNumber], Instance.sfxSource.volume);
     }
 
+    //음악 중단
     public static void StopSfx()
     {
         Instance.sfxSource.Stop();
@@ -68,6 +74,7 @@ public class SoundManager : MonoBehaviour, ISingleton
         Instance.bgmSource.Stop();
     }
 
+    //음소거 함수
     public static void SetMuteSfx(bool _mute)
     {
         Instance.sfxSource.mute = _mute;
@@ -77,6 +84,8 @@ public class SoundManager : MonoBehaviour, ISingleton
         Instance.bgmSource.mute = _mute;
     }
 
+
+    //소리크기 변환
     public static void ChangeSfxVolume(float _value)
     {
         Instance.sfxSource.volume = _value;
@@ -86,6 +95,7 @@ public class SoundManager : MonoBehaviour, ISingleton
         Instance.bgmSource.volume = _value;
     }
 
+    //볼륨 크기 반환
     public static float GetVolumeSfx()
     {
         return Instance.sfxSource.volume;
@@ -95,6 +105,7 @@ public class SoundManager : MonoBehaviour, ISingleton
         return Instance.bgmSource.volume;
     }
 
+    //음소거 여부 반환
     public static bool GetMuteSfx()
     {
         return Instance.sfxSource.mute;
