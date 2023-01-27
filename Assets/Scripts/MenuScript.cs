@@ -28,8 +28,6 @@ public class MenuScript : MonoBehaviour
     public void RankButton()
     {
         RankTab.SetActive(true);
-        PlayerData data = DataManager.GetInstance().LoadData();
-        RankingScript.GetInstaince().OnClickTransactionSave(data.userId, data.highScore);
         RankingScript.GetInstaince().TextLoad();
     }
 
