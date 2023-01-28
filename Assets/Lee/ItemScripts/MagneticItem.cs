@@ -16,7 +16,7 @@ public class MagneticItem : Item
     {
         if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Magnetic) == false)
         {
-            Destroy(coinTaker);
+            Destroy(coinTaker.gameObject);
         }
     }
 }
