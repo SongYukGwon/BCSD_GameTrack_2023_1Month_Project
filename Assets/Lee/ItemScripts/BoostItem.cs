@@ -30,8 +30,16 @@ public class BoostItem : Item
             player.GetComponent<PlayerContoller>().basicSpeed = prevSpeed;
             player.GetComponent<PlayerContoller>().BoostEffectSwitch(false);
 
-            if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Shield) == false)
-                player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);
+            StartCoroutine(BoostEndTerm());
+            /*if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Shield) == false)
+                player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);*/
         }
+    }
+
+    IEnumerator BoostEndTerm()
+    {
+        yield return new WaitForSeconds(3.0f);
+        if (GameManager.ItemUseManager.CheckItemUsing(ItemKind.Shield) == false)
+            player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Running);
     }
 }

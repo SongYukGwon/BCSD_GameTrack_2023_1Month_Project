@@ -12,7 +12,6 @@ public abstract class Item : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        if (player == null) Debug.Log($"{gameObject.name} : No Player");
         newMaterial = Resources.Load<Material>("Materials/Transparent");
     }
 
@@ -39,6 +38,6 @@ public abstract class Item : MonoBehaviour
         }
     }
 
-    protected virtual void ItemUse() {}
-    protected virtual void ItemEnd() {}
+    protected virtual void ItemUse() {} // 아이템 획득 시 사용되는 함수
+    protected virtual void ItemEnd() {} // 아이템 시간 종료시 사용되는 함수
 }
