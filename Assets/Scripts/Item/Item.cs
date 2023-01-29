@@ -19,7 +19,7 @@ public abstract class Item : MonoBehaviour
     {
         if (haveItem)
         {
-            if (GameManager.ItemUseManager.CheckItemUsing(itemInfo.itemKind) == false)
+            if (ItemUseManager.GetItemUseManager().CheckItemUsing(itemInfo.itemKind) == false)
             {
                 ItemEnd();
                 Destroy(gameObject);
