@@ -12,7 +12,7 @@ public abstract class Item : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        newMaterial = Resources.Load<Material>("Materials/Transparent");
+        newMaterial = Resources.Load<Material>("BackGroundObject/Materials/Transparent");
     }
 
     void Update()
