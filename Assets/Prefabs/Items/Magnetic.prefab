@@ -112,4 +112,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: aee2ca170a3541a409143e401f6412e6, type: 2}
+  haveItem: 0
   coinTaker: {fileID: 7235127733177305277, guid: 4786da4f160064d4ab5a779323d84913, type: 3}
