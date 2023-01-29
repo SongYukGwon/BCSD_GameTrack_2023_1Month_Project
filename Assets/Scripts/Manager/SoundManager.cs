@@ -6,7 +6,8 @@ using Unity.VisualScripting;
 public enum SFX
 {
     BUTTON,
-    DEAD
+    DEAD,
+    COIN
 }
 
 public enum BGM
