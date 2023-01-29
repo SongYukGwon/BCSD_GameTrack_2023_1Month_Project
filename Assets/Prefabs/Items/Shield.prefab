@@ -112,3 +112,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: 77eb8c67aae552943b51c75a2e6d428c, type: 2}
+  haveItem: 0
+  shieldEffect: {fileID: 7490702174331882458, guid: 0dbcdd5120c7b1348b992c6707cc7332, type: 3}

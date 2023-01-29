@@ -19,18 +19,19 @@ public class CoinItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if (other.CompareTag("CoinTaker"))
         {
             isDetected = true;
-            Debug.Log("detected");
         }
         else if (other.CompareTag("Player"))
         {
             // 코인 개수 증가 코드
             GameManager.GetInstaince().PlusCoin(1);
+<<<<<<< HEAD
+=======
             SoundManager.PlaySfx(SFX.COIN);
             Debug.Log("Coin Added");
+>>>>>>> b4f5ed3055c01e2ef8872b4c9fbba4ec2dd70f02
             Destroy(gameObject);
         }
     }
