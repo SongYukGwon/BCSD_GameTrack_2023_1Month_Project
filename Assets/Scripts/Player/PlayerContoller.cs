@@ -36,6 +36,9 @@ public class PlayerContoller : MonoBehaviour
     private bool isInvincible;
     private int coin;
 
+    Vector3 startPos;
+    Vector3 endPos;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -61,10 +64,30 @@ public class PlayerContoller : MonoBehaviour
     {
         if(!isDead)
         {
-            CharacterMove(); // 캐릭터 좌우 인식
-            CharacterJump(); // 캐릭터 점프 인식
-            CharacterSlide(); // 캐릭터 슬라이드 인식
-            CharacterScore(); // 캐릭터 점수 업데이트
+            if (Input.GetMouseButtonDown(0))
+            {
+                startPos = Input.mousePosition;
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                endPos = Input.mousePosition;
+                CalcDirection(startPos, endPos);
+            }
+
+            //슬라이드 부분
+            if (slideTime > 0)
+            {
+                slideTime -= Time.deltaTime;
+            }
+            else
+            {
+                colider[0].enabled = true;
+                colider[1].enabled = false;
+            }
+            //CharacterMove(); // 캐릭터 좌우 인식
+            //CharacterJump(); // 캐릭터 점프 인식
+            //CharacterSlide(); // 캐릭터 슬라이드 인식
+            CharacterScore(); // 캐릭터 점수 업데이트*/
         }
     }
 
@@ -75,6 +98,43 @@ public class PlayerContoller : MonoBehaviour
         //zPos += speed * Time.deltaTime;
         //Vector3 movement = Vector3.Lerp(route[routeIndex], 0, transform.position.z+speed);
         rigid.MovePosition(movement);
+    }
+
+    void CalcDirection(Vector2 s, Vector2 e)
+    {
+        float dy = (e.y - s.y);
+        float dx = (e.x - s.x);
+        float incline = dy / dx;
+        if (Mathf.Abs(incline) > 1 && dy > 0) // 점프
+        {
+            if(!isJump)
+            {
+                footEffect.Stop();
+                rigid.AddForce(Vector3.up * 20, ForceMode.Impulse);
+                anim.SetTrigger("Jumped");
+                isJump = true;
+            }
+        }
+        else if (Mathf.Abs(incline) > 1 && dy < 0) // 슬라이딩
+        {
+            if (slideTime <= 0)
+            {
+                anim.SetTrigger("Slided");
+                footEffect.Stop();
+                rigid.AddForce(Vector3.down * 15, ForceMode.Impulse);
+                slideTime = 0.8f;
+                colider[0].enabled = false;
+                colider[1].enabled = true;
+            }
+        }
+        else if (Mathf.Abs(incline) < 1 && dx > 0) // 오른쪽
+        {
+            routeIndex++;
+        }
+        else if (Mathf.Abs(incline) < 1 && dx < 0) // 왼쪽
+        {
+            routeIndex--;
+        }
     }
 
     //캐릭터 점수 및 속도 업데이트
