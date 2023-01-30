@@ -127,11 +127,11 @@ public class PlayerContoller : MonoBehaviour
                 colider[1].enabled = true;
             }
         }
-        else if (Mathf.Abs(incline) < 1 && dx > 0) // 坷弗率
+        else if (Mathf.Abs(incline) < 1 && dx > 0 && routeIndex<2) // 坷弗率
         {
             routeIndex++;
         }
-        else if (Mathf.Abs(incline) < 1 && dx < 0) // 哭率
+        else if (Mathf.Abs(incline) < 1 && dx < 0 && routeIndex>0) // 哭率
         {
             routeIndex--;
         }
