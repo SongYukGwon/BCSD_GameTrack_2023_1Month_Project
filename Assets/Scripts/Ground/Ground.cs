@@ -11,7 +11,6 @@ public class Ground : MonoBehaviour
         player = GameObject.Find("Player");
         if(player == null)
         {
-            Debug.Log("No Player");
             Destroy(gameObject);
         }
     }
