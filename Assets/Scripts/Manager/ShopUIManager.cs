@@ -12,6 +12,8 @@ public class ShopUIManager : MonoBehaviour
     public GameObject shopTab;
     public Camera skinCamera;
 
+    public List<int> characterPrice;
+
     public GameObject UISpawner;
     public TextMeshProUGUI CoinText;
 
@@ -57,9 +59,10 @@ public class ShopUIManager : MonoBehaviour
         switch (state)
         {
             case "Buy":
-                if (data.characterStatus[index] == false && data.coin >= 100)
+                int price = characterPrice[index];
+                if (data.characterStatus[index] == false && data.coin >= price)
                 {
-                    data.coin -= 100;
+                    data.coin -= price;
                     data.characterStatus[index] = true;
                     characterCoin.text = "";
                     characterStatus.text = "Equip";
@@ -68,8 +71,8 @@ public class ShopUIManager : MonoBehaviour
             case "Equip":
                 data.character = index;
                 characterStatus.text = "Equiped";
-                GameObject UISpawner = GameObject.Find("PlayerSpawn");
-                UISpawner.GetComponent<Spawn>().setCharacter(index);
+                GameObject PUISpawner = GameObject.Find("PlayerSpawn");
+                PUISpawner.GetComponent<Spawn>().setCharacter(index);
                 break;
             default:
                 characterCoin.text = "Already Equiped";
@@ -99,6 +102,7 @@ public class ShopUIManager : MonoBehaviour
         }
     }
 
+
     //상점 나가기 버튼 이벤트 함수
     public void BackToMenu()
     {
@@ -126,7 +130,7 @@ public class ShopUIManager : MonoBehaviour
         PlayerData data = DataManager.GetInstance().LoadData();
         if (data.characterStatus[index] == false)
         {
-            characterCoin.text = "100G";
+            characterCoin.text = characterPrice[index].ToString();
             characterStatus.text = "Buy";
         }
         else

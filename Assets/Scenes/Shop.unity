@@ -4972,6 +4972,7 @@ MonoBehaviour:
   itemTab: {fileID: 1157486679}
   shopTab: {fileID: 203613512}
   skinCamera: {fileID: 1577004150}
+  characterPrice: 0000000064000000f4010000
   UISpawner: {fileID: 1015304428}
   CoinText: {fileID: 1590326752}
   characterStatus: {fileID: 690153603}
