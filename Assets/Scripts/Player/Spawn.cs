@@ -7,6 +7,8 @@ public class Spawn : MonoBehaviour
     //스폰 캐릭터 모음
     [SerializeField]
     private GameObject[] characters;
+    [SerializeField]
+    private GameObject mapMaker;
 
     private int index;
 
@@ -17,6 +19,10 @@ public class Spawn : MonoBehaviour
         PlayerData data = DataManager.GetInstance().LoadData();
         characters[data.character].SetActive(true);
         index = data.character;
+
+        //MapMaker 생성
+        mapMaker = Instantiate(mapMaker, characters[data.character].transform);
+        mapMaker.transform.localPosition += new Vector3(0, 0, 40);
     }
 
     //선택된 캐릭터 보이기

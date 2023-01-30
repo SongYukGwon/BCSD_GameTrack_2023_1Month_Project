@@ -724,6 +724,10 @@ PrefabInstance:
       value: rpgpp_lt_table_01
       objectReference: {fileID: 0}
     - target: {fileID: 1315125114229348, guid: 4c1686a5131ac8b45bfe913f509289c0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315125114229348, guid: 4c1686a5131ac8b45bfe913f509289c0, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}

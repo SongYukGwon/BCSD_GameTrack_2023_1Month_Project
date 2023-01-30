@@ -239,18 +239,21 @@ public class PlayerContoller : MonoBehaviour
                 {
                     isDead = false;
                     isInvincible = false;
+                    gameObject.layer = 0;
                     break;
                 }
             case PlayerState.Dead:
                 {
                     isDead = true;
                     isInvincible = false;
+                    gameObject.layer = 0;
                     break;
                 }
             case PlayerState.Invincible:
                 {
                     isDead = false;
                     isInvincible = true;
+                    gameObject.layer = 8; // invincible layer
                     break;
                 }
             default:
