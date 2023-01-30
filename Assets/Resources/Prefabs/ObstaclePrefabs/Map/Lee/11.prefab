@@ -319,6 +319,10 @@ PrefabInstance:
       value: rpgpp_lt_rock_02 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
@@ -789,6 +793,10 @@ PrefabInstance:
       value: rpgpp_lt_rock_02
       objectReference: {fileID: 0}
     - target: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290125285081394, guid: 491dc122236ad9749a046177ea69736d, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
@@ -880,6 +888,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6461054720789861330}
     m_Modifications:
+    - target: {fileID: 7943129684428113708, guid: c0a8399b6aa9908459ea09c36dadd2cb, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7943129684428113710, guid: c0a8399b6aa9908459ea09c36dadd2cb, type: 3}
       propertyPath: m_Name
       value: 2WayObstacle (1)

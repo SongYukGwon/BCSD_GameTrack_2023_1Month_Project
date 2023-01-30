@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7943129684428282636}
   - component: {fileID: 7943129684424858412}
   - component: {fileID: 7943129684425857516}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PP_Horse_Cart_Used_02_Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}

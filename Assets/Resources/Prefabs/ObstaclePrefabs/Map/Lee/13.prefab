@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4668502613102933289}
   - component: {fileID: 3170936840082357640}
   - component: {fileID: 2804464462248204204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_bird_house_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1011907623471604463}
   - component: {fileID: 4740154361995929354}
   - component: {fileID: 1657766455929442159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_bird_house_01 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 3892796625334501013}
   - component: {fileID: 7568136731729200847}
   - component: {fileID: 5011485948242959020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_bird_house_01 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_bush_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4105805283940168, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -685,6 +689,10 @@ PrefabInstance:
     - target: {fileID: 1235107498267470, guid: efd8147160aa6c64c8121a2ed788744e, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_bush_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235107498267470, guid: efd8147160aa6c64c8121a2ed788744e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4019303215891802, guid: efd8147160aa6c64c8121a2ed788744e, type: 3}
       propertyPath: m_RootOrder

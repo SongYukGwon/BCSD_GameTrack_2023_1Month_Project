@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4114601591069707772}
   - component: {fileID: 2179503229139870979}
   - component: {fileID: 8857076538922658132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PP_Horse_Cart_Used_02_Wheels
   m_TagString: ObstacleTrigger
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4114601591069707774}
   - component: {fileID: 8367292676542562812}
   - component: {fileID: 296951731893844317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForwordObstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
