@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5762880856135853718}
   - component: {fileID: 317490920915527545}
   - component: {fileID: 8755271408677811589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_bird_house_01 (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 945325853274177324}
   - component: {fileID: 5392500150149594710}
   - component: {fileID: 2472007500409586115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_bird_house_01 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 7244697659408914656}
   - component: {fileID: 7552894024168446286}
   - component: {fileID: 8811907069318518293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_bird_house_01 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 8061515094342919674}
   - component: {fileID: 8056016315526838844}
   - component: {fileID: 1712736059109533768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_bird_house_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 2021510726492759564}
   - component: {fileID: 6125432897297837340}
   - component: {fileID: 298625662395462357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_hanger_wood_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -672,6 +672,10 @@ PrefabInstance:
       value: rpgpp_lt_bush_01 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
@@ -762,6 +766,10 @@ PrefabInstance:
     - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_bush_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_TagString
@@ -1102,6 +1110,10 @@ PrefabInstance:
     - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_bush_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_TagString
@@ -1630,6 +1642,10 @@ PrefabInstance:
       value: rpgpp_lt_bush_01 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
@@ -1970,6 +1986,10 @@ PrefabInstance:
       value: rpgpp_lt_bush_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
@@ -2122,6 +2142,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 30c389f0d35cc414d9e841ff82ce1424, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_hanger_clothes_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 30c389f0d35cc414d9e841ff82ce1424, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 30c389f0d35cc414d9e841ff82ce1424, type: 3}
       propertyPath: m_TagString
@@ -2286,6 +2310,10 @@ PrefabInstance:
       value: rpgpp_lt_bush_01 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783979763778466, guid: bd1a894f239d58d4dbf63f27e28096bd, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
@@ -2376,6 +2404,10 @@ PrefabInstance:
     - target: {fileID: 1649361158825916, guid: 4500da6a464da55408dd1ff2324163a7, type: 3}
       propertyPath: m_Name
       value: rpgpp_lt_well_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649361158825916, guid: 4500da6a464da55408dd1ff2324163a7, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1649361158825916, guid: 4500da6a464da55408dd1ff2324163a7, type: 3}
       propertyPath: m_TagString

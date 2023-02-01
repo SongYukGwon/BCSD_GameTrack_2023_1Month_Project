@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7748056214452268340}
   - component: {fileID: 5753887404668113043}
   - component: {fileID: 6597860007338677937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 2487352061636606068}
   - component: {fileID: 4499847999962726753}
   - component: {fileID: 6689467979043288091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_hanger_wood_01 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 5538052602672210501}
   - component: {fileID: 5538052602671210629}
   - component: {fileID: 2490406529494328798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_hanger_clothes_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 2745169842109051260}
   - component: {fileID: 8893268743039562885}
   - component: {fileID: 3852908960197315209}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_rock_01 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 6626388928967124994}
   - component: {fileID: 4652759468872051975}
   - component: {fileID: 7216287490595774849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_rock_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 2826335741455991647}
   - component: {fileID: 6264674621813941292}
   - component: {fileID: 6997756154496768672}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_hanger_wood_01 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 8260283195056608753}
   - component: {fileID: 8251325477624167905}
   - component: {fileID: 1858546885653341231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_rock_01
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 8746474612765769765}
   - component: {fileID: 3436124422647209242}
   - component: {fileID: 2698277012633517561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

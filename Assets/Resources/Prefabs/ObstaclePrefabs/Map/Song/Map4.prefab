@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 1089876052038677972}
   - component: {fileID: 3035463267849618918}
   - component: {fileID: 9026755328451563323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_hanger_wood_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 6154138971611519571}
   - component: {fileID: 6143935988147045783}
   - component: {fileID: 8578371106865679816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_hanger_wood_01
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 459830927864427267}
   - component: {fileID: 6450896731282152897}
   - component: {fileID: 5349582008178324974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01 (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 616039424588027473}
   - component: {fileID: 8256292570885909051}
   - component: {fileID: 7781023954172193797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 7722016402321690627}
   - component: {fileID: 2578984919546039034}
   - component: {fileID: 2804733092715558346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01 (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 3593031817381391456}
   - component: {fileID: 947208529027237694}
   - component: {fileID: 8234920629342236436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01 (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 2383500979623508968}
   - component: {fileID: 9170134894634766350}
   - component: {fileID: 48240020113868979}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 9080257681906820051}
   - component: {fileID: 6530609983812813813}
   - component: {fileID: 5687921101027192017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1198,7 +1198,7 @@ GameObject:
   - component: {fileID: 7782442958553140944}
   - component: {fileID: 4237572814938493935}
   - component: {fileID: 3464189879669486348}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rpgpp_lt_wagon_01
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
