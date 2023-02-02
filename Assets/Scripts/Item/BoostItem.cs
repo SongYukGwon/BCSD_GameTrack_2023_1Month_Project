@@ -11,7 +11,6 @@ public class BoostItem : Item
     {
         if (ItemUseManager.GetItemUseManager().CheckItemUsing(ItemKind.Boost) == false)
         {
-            //if (player == null) player = GameObject.Find("Player");
             prevSpeed = player.GetComponent<PlayerContoller>().basicSpeed;
             player.GetComponent<PlayerContoller>().basicSpeed = boostSpeed;
             player.GetComponent<PlayerContoller>().ChangePlayerState(PlayerState.Invincible);

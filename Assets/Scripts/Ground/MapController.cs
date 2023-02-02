@@ -8,7 +8,6 @@ public class MapController : MonoBehaviour
     public GameObject[] grounds;
     public float groundLength;
 
-    //int groundCount = 1;
     Vector3 currentGroundPos;
 
     void Start()
@@ -21,12 +20,10 @@ public class MapController : MonoBehaviour
         if (transform.position.z > currentGroundPos.z)
         {
             SpawnGround();
-            //groundCount++;
-            //Debug.Log(groundCount);
         }
     }
 
-    void SpawnGround()
+    void SpawnGround() // 리스트에서 랜덤으로 Ground를 스폰함
     {
         int index = Random.Range(0, grounds.Length);
         Vector3 newPosition = new Vector3(currentGroundPos.x, currentGroundPos.y,

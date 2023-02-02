@@ -71,7 +71,7 @@ public class PlayerContoller : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 endPos = Input.mousePosition;
-                CalcDirection(startPos, endPos);
+                CalcDirection(startPos, endPos); // 입력값을 통해 캐릭터의 이동 결정
             }
 
             //슬라이드 부분
@@ -84,10 +84,8 @@ public class PlayerContoller : MonoBehaviour
                 colider[0].enabled = true;
                 colider[1].enabled = false;
             }
-            //CharacterMove(); // 캐릭터 좌우 인식
-            //CharacterJump(); // 캐릭터 점프 인식
-            //CharacterSlide(); // 캐릭터 슬라이드 인식
-            CharacterScore(); // 캐릭터 점수 업데이트*/
+
+            CharacterScore(); // 캐릭터 점수 업데이트
         }
     }
 
@@ -145,55 +143,6 @@ public class PlayerContoller : MonoBehaviour
         speed = basicSpeed + zPos / 400;
     }
 
-
-    //캐릭터 움직임
-    void CharacterMove()
-    {
-        if (Input.GetKeyDown(KeyCode.A) && routeIndex > 0)
-        {
-            routeIndex--;
-        }
-
-        if(Input.GetKeyDown(KeyCode.D) && routeIndex < 2)
-        {
-            routeIndex++;
-        }
-
-    }
-
-    void CharacterJump()
-    {
-        if (Input.GetKeyDown(KeyCode.W) && !isJump)
-        {
-            footEffect.Stop();
-            rigid.AddForce(Vector3.up * 20, ForceMode.Impulse);
-            anim.SetTrigger("Jumped");
-            isJump = true;
-        }
-    }
-
-    void CharacterSlide()
-    {
-        if (Input.GetKeyDown(KeyCode.S) && slideTime<=0)
-        {
-            anim.SetTrigger("Slided");
-            footEffect.Stop();
-            rigid.AddForce(Vector3.down * 15, ForceMode.Impulse);
-            slideTime = 0.8f;
-            colider[0].enabled = false;
-            colider[1].enabled = true;
-        }
-        if (slideTime>0)
-        {
-            slideTime -= Time.deltaTime;
-        }
-        else
-        {
-            colider[0].enabled = true;
-            colider[1].enabled = false;
-        }
-    }
-
     //플레이어 충돌
     private void OnCollisionEnter(Collision collision)
     {
@@ -231,7 +180,7 @@ public class PlayerContoller : MonoBehaviour
         anim.SetTrigger("Dead");
     }
 
-    public void ChangePlayerState(PlayerState state)
+    public void ChangePlayerState(PlayerState state) // 플레이어의 상태 변경 함수
     {
         switch (state)
         {
@@ -261,7 +210,7 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-    public void BoostEffectSwitch(bool isOn)
+    public void BoostEffectSwitch(bool isOn) // Boost 효과 오브젝트 On/Off
     {
         if(isOn) { boostEffect.SetActive(true); }
         else { boostEffect.SetActive(false); }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ItemUseManager : MonoBehaviour
 {
+    // 각 아이템 타입들의 사용 여부(혹은 사용시간)을 관리하고 아이템 사용 이팩트를 관리
     static ItemUseManager itemUseManager;
     public static ItemUseManager GetItemUseManager()
     {
@@ -16,7 +17,7 @@ public class ItemUseManager : MonoBehaviour
     [SerializeField] private float[] currentDuration = { 0, 0, 0, 0 };
     public int additionalTime = 3; // 이미 사용중인 아이템을 또 획득할 시 추가되는 사용시간
 
-    [SerializeField] GameObject ShieldEffect;
+    [SerializeField] GameObject ShieldEffect; // 쉴드 아이템 사용 시 나타날 효과 오브젝트
     Animator shieldAnimator;
 
     private void Awake()
@@ -66,6 +67,7 @@ public class ItemUseManager : MonoBehaviour
         }
     }
 
+    // Shield 혹은 Boost 사용 시(Player가 무적 상태일 때) 무적 효과 오브젝트 활성화
     private void PlayShieldEffect()
     {
         if (itemUseList[(int)ItemKind.Boost] || itemUseList[(int)ItemKind.Shield])
