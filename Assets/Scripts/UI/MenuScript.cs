@@ -23,7 +23,6 @@ public class MenuScript : MonoBehaviour
     //게임시작 버튼 이벤트 함수
     private void StartGame()
     {
-        Debug.Log("Click");
         SceneManager.LoadScene("MainScene");
     }
     //랭크 버튼 이벤트 함수

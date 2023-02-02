@@ -28,7 +28,6 @@ public class CoinItem : MonoBehaviour
             // 코인 개수 증가 코드
             GameManager.GetInstaince().PlusCoin(1);
             SoundManager.PlaySfx(SFX.COIN);
-            Debug.Log("Coin Added");
             Destroy(gameObject);
         }
     }
