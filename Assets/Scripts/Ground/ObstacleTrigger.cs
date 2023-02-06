@@ -9,7 +9,8 @@ public class ObstacleTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            gameObject.GetComponentInParent<MoveObstacle>().StartMoving();
+            float speed = other.GetComponent<PlayerContoller>().getSpeedNumber();
+            gameObject.GetComponentInParent<MoveObstacle>().StartMoving(speed);
         }
     }
 }

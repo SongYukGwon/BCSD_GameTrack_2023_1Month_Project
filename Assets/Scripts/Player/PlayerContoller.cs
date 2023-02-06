@@ -17,6 +17,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField]
     private GameObject boostEffect;
     public float basicSpeed;
+    private float scoreSpeed;
     private float speed;
     private Animator anim;
     private GameManager gameManager;
@@ -140,7 +141,8 @@ public class PlayerContoller : MonoBehaviour
     {
         zPos += speed * Time.deltaTime;
         gameManager.UpdateScoreText((int)(zPos*10));
-        speed = basicSpeed + zPos / 400;
+        scoreSpeed = (1 + zPos / 400);
+        speed = basicSpeed * scoreSpeed;
     }
 
     //플레이어 충돌
@@ -160,6 +162,11 @@ public class PlayerContoller : MonoBehaviour
         {
             Dead();
         }
+    }
+
+    public float getSpeedNumber()
+    {
+        return scoreSpeed;
     }
 
 

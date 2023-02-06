@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Sprites;
 using UnityEngine;
 
 
@@ -34,9 +35,10 @@ public class MoveObstacle : MonoBehaviour
     }
 
     //트리거에서 움직이게하는 함수
-    public void StartMoving()
+    public void StartMoving(float plusSpeed)
     {
         orginPos = transform.position;
+        speed = speed* plusSpeed;
         isMoving = true;
     }
 
