@@ -147,6 +147,9 @@ public class RankingScript : MonoBehaviour, ISingleton
 
             leaders.Add(newScoreMap);
             mutableData.Value = leaders;
+
+
+            LoadRanking();
             return TransactionResult.Success(mutableData);
         });
     }
